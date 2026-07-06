@@ -1,0 +1,62 @@
+.all {
+    width: 100%;
+    margin: 0 auto;
+ }
+ 
+ h2.tit {
+    padding: 0 0 26px 0;
+    font-size: 1.8666em;
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    color: #503396;;
+    font-weight: bold;
+    margin-left: 300px;
+ }
+ 
+ table {
+    width: 70%;
+    margin: 0;
+    border: 0;
+    table-layout: fixed;
+    border-collapse: collapse;
+    empty-cells: show;
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    border-spacing: 2px;
+    -webkit-border-horizontal-spacing: 2px;
+    -webkit-border-vertical-spacing: 2px;
+    border-color: grey;
+    border-collapse: collapse;
+    margin-left: 300px;
+ }
+ 
+ th {
+    padding: 10px 20px;
+    border: 1px solid #eaeaea;
+    background-color: #f7f8f9;
+ }
+ 
+ td {
+    padding: 10px 20px;
+    border: 1px solid #eaeaea;
+    text-align: center;
+ }
+ 
+ tr {
+    text-align: center;
+    padding: 10px 20px;
+    border: 1px solid #eaeaea;
+ }
+ 
+ .quest {
+    margin-left: 300px;
+    font-size: 1.6em;
+    color: #503396;
+    font-size: 1.6em;
+ }
+ 
+ .active {
+    display: none;
+ }

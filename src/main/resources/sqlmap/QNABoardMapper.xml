@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lcb404.mapper.QNABoardMapper">
+
+<insert id = "QNAregist" >
+insert into qna(members_id,qna_place,qna_hpnum1,qna_hpnum2,qna_hpnum3,qna_email,qna_title,qna_content)
+values(#{members_id},#{qna_place},#{qna_hpnum1},#{qna_hpnum2},#{qna_hpnum3},#{qna_email},#{qna_title},#{qna_content})
+</insert>
+
+<select id = "QNAgetList" resultType="QNABoardVO" >
+<![CDATA[
+      select * from
+      (select @rownum:=@rownum+1 as rn, A.* from 
+      (select * from qna where 
+      ]]>
+   <choose>
+      <when test="searchKey==null or searchKey==''">1=1</when>
+      <otherwise>qna_title like CONCAT('%',#{searchKey},'%')</otherwise>
+   </choose>
+   
+   <![CDATA[
+         order by qna_number desc
+      ) A, (SELECT @ROWNUM := 0 ) B) C where rn>(#{pageNum}-1) * #{amount}  and rn<= #{pageNum} * #{amount}
+      ]]>
+</select>
+
+<select id = "QNAMyList" resultType="QNABoardVO" >
+<![CDATA[
+      select * from
+      (select @rownum:=@rownum+1 as rn, A.* from 
+      (select * from qna where members_id = #{MEMBERS_ID} 
+     
+         order by qna_number desc
+      ) A, (SELECT @ROWNUM := 0 ) B) C where rn>(#{cri.pageNum}-1) * #{cri.amount}  and rn<= #{cri.pageNum} * #{cri.amount}
+      ]]>
+</select>
+
+<select id="getTotal" resultType="int">
+            select count(*) from qna where 
+      
+      <choose>
+      
+      <when test="searchKey==null or searchKey==''">1=1</when>
+      <otherwise>qna_title like CONCAT('%',#{searchKey},'%')</otherwise>
+      
+      </choose>
+   </select>
+<select id="getMyTotal" resultType="int">
+            select count(*) from qna where MEMBERS_ID=#{MEMBERS_ID}
+</select>
+<select id="getContent" resultType="QNABoardVO">
+		select * from qna where qna_number = #{qna_number}
+	</select>
+<update id="Update">
+		update qna set qna_title=#{qna_title}, qna_content=#{qna_content} where qna_number=#{qna_number}
+	</update>
+	<delete id="delete">
+		delete from qna where qna_number = #{qna_number}
+	</delete>
+</mapper>

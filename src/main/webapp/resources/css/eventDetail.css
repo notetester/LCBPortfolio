@@ -1,0 +1,52 @@
+#contents {
+    width: 100%;
+    margin: 0;
+    padding: 40px 0 0 0;
+ }
+ 
+ .event-detail {
+    position: relative;
+    margin: 0 0 40px 0;
+    padding: 0 0 30px 0;
+ }
+ 
+ .event-detail h2.tit {
+    width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+ }
+ 
+ h2.tit {
+    padding: 0 0 26px 0;
+    font-size: 1.8666em;
+    font-weight: 400;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    color: #222;
+ }
+ 
+ .event-detail .event-detail-date {
+    overflow: hidden;
+    width: 1100px;
+    margin: 0 auto 30px auto;
+    padding: 15px 0 25px 0;
+    line-height: 1.1;
+    border-bottom: 1px solid #555;
+ }
+ 
+ .event-detail .event-html {
+    overflow: hidden;
+    width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+ }
+ 
+ .go-mobile {
+    display: none;
+    height: 97px;
+    min-width: 1100px;
+    text-align: center;
+    font-size: 2.1333em;
+    color: #fff;
+    background-color: #513397;
+ }

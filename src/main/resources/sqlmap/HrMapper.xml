@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lcb404.mapper.HrMapper">
+
+<insert id="regist">
+		insert into hrboard ( title, writer, content)
+		values (#{title},#{userId},#{content})
+	</insert>
+	<select id="getList" resultType="HrVO">
+	<![CDATA[
+		select * from
+		(select @rownum:=@rownum+1 as rn, A.* from 
+		(select * from hrboard where 
+		]]>
+	<choose>
+		<when test="searchKey==null or searchKey==''">1=1</when>
+		<otherwise>title like CONCAT('%',#{searchKey},'%')</otherwise>
+	</choose>
+	
+	<![CDATA[
+			order by hrtno desc
+		) A,(SELECT @ROWNUM := 0 ) B) C where rn>(#{pageNum}-1) * #{amount}  and rn<= #{pageNum} * #{amount}
+		]]>
+	</select>
+	<select id="getTotal" resultType="int">
+				select count(*) from hrboard where 
+		
+		<choose>
+		
+		<when test="searchKey==null or searchKey==''">1=1</when>
+		<otherwise>title like CONCAT('%',#{searchKey},'%')</otherwise>
+		
+		</choose>
+	</select>
+	
+	<select id="getContent" resultType="HrVO">
+		select * from hrboard where hrtno = #{hrtno} 
+	</select>
+	
+	<update id="getUpdate">
+		update hrboard set title=#{title}, writer=#{writer}, content=#{content} where hrtno=#{hrtno} 
+	</update>
+
+	<delete id="getDelete">
+		delete from hrboard where hrtno = #{hrtno} 
+	</delete>
+
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lcb404.mapper.QNAReplyMapper">
+	<insert id="replyRegist">
+		insert into qnareply(qno,reply,replyId,replyPw)
+		values(#{qno},#{reply},#{replyId},#{replyPw})
+	</insert>
+	
+	<select id="getList" resultType="QNAReplyVO">	
+	 <![CDATA[
+	 select * from
+			(select @rownum:=@rownum+1 as rn, A.* from   	   
+			(select * from qnareply where qno = #{qno} order by qrno desc) A, (SELECT @ROWNUM := 0 ) B ) C
+			where rn > (#{cri.pageNum}-1)*#{cri.amount} and rn <=#{cri.pageNum}*#{cri.amount}
+	 ]]>
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		select count(*) as cnt from qnareply where qno = #{qno}
+	</select>
+	
+	<!--  
+	<select id="getReplyPw" resultType = "int">
+		select count(*) as result 
+		from freereply where rno = #{rno} and replyPw = #{replyPw}
+	</select>
+	-->
+	<select id="getReplyPw" resultType="String">
+		select replyPw from qnareply where qrno = #{qrno}
+	</select>
+	
+	<update id="replyUpdate">
+		update qnareply set reply = #{reply}, replydate=current_timestamp() where qrno = #{qrno}
+	</update>
+	
+	<delete id="replyDelete">
+		delete from qnareply where qrno = #{qrno}
+	</delete>
+</mapper>

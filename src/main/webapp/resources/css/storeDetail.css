@@ -1,0 +1,406 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+a {
+	background-color: transparent;
+}
+
+a:-webkit-any-link {
+	color: -webkit-link;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+div {
+	display: block;
+}
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+	background-color: #fff;
+}
+
+.contents {
+	width: 100%;
+	margin: 0;
+	padding: 40px 0 0 0;
+}
+
+.inner-wrap {
+	width: 1100px;
+	margin: 0 auto;
+	height: 700px;
+}
+
+.store-view {
+	margin: 0 0 40px 0;
+}
+
+.modal-layer {
+	overflow-y: scroll;
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 501;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.box-pulldown {
+	overflow: hidden;
+}
+
+.box-pulldown+.box-pulldown {
+	margin-top: 20px;
+}
+
+.store-view .sub-info {
+	overflow: hidden;
+}
+
+.store-view .box-store-view {
+	overflow: hidden;
+	position: relative;
+	margin: 10px 0 0 0;
+	border-top: 1px solid #555;
+	border-bottom: 1px solid #d8d9db;
+}
+
+.store-view .box-store-view .left {
+	float: left;
+	width: 480px;
+	padding: 0 0 30px 0;
+}
+
+.store-view .box-store-view .right {
+	float: left;
+	width: calc(100% - 480px);
+	padding: 15px 0 30px 40px;
+}
+
+.store-view .box-store-view .right {
+	float: left;
+	width: calc(100% - 480px);
+	padding: 15px 0 30px 40px;
+}
+
+.box-pulldown .tit {
+	overflow: hidden;
+	border-radius: 5px;
+	border: 1px solid #d8d9db;
+}
+
+.box-pulldown .tit .btn-toggle {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 39px;
+	margin: 0;
+	padding: 0 20px;
+	border: 0;
+	text-align: left;
+	background-color: #fff;
+}
+
+.box-pulldown .cont {
+	/*  display: none;*/
+	/*display사용시 자바스크립 사용해야됨*/
+	margin: 0;
+	padding: 20px;
+}
+
+button {
+	cursor: pointer;
+	letter-spacing: -.5px;
+	font-weight: 400;
+	font-family: NanumBarunGothic, Dotum, '돋움', sans-serif;
+}
+
+button n {
+	text-rendering: auto;
+	letter-spacing: normal;
+	text-indent: 0px;
+	text-shadow: none;
+	align-items: flex-start;
+	font: 400 13.3333px Arial;
+}
+
+.box-pulldown .cont {
+	/*  display: none;*/
+	/*display사용시 자바스크립 사용해야됨*/
+	margin: 0;
+	padding: 20px;
+}
+
+.store-view p {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+/* tit*/
+h2.tit {
+	padding: 0 0 26px 0;
+	font-size: 1.8666em;
+	font-weight: 400;
+	letter-spacing: -1px;
+	line-height: 1.1;
+	color: #222;
+}
+
+.store-view .sub-info .bundle {
+	float: left;
+}
+
+button, select {
+	text-transform: none;
+}
+
+button, input {
+	overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+	font-size: 1em;
+	line-height: 1.15;
+}
+
+.btn-toggle.active {
+	display: flex;
+}
+
+.iconset {
+	overflow: hidden;
+	display: inline-block;
+	margin: -1px 0 0 0;
+	padding: 0;
+	font-size: 0;
+	line-height: 0;
+	vertical-align: middle;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+}
+
+.ico-arr-toggle-down {
+	overflow: hidden;
+	width: 12px;
+	height: 7px;
+	background-image:
+		url(https://img.megabox.co.kr/static/pc/images/common/ico/ico-arr-toggle-down.png);
+}
+
+.box-pulldown .tit .btn-toggle .iconset {
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	margin-top: -4px;
+}
+
+.box-pulldown.on .tit .btn-toggle {
+	background-color: #f3f4f6;
+}
+
+.box-pulldown.on .cont {
+	display: block;
+}
+
+button.active {
+	display: flex;
+}
+
+/* 증감 버튼 기격 수량표시 기능;*/
+.store-view .box-store-view .right .type .cont {
+	overflow: hidden;
+	display: table-cell;
+	width: calc(100% - 100px);
+	padding-top: 20px;
+	vertical-align: top;
+}
+
+.store-view .box-store-view .right .type .receipt .line .btn {
+	display: block;
+	float: left;
+	width: 32px;
+	height: 32px;
+	margin: 0;
+	padding: 0;
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+
+.btn {
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	border-radius: 4px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/*감소 */
+.ico-minus {
+	width: 13px;
+	height: 13px;
+	background-image:
+		url(https://img.megabox.co.kr/static/pc/images/common/ico/ico-minus.png);
+}
+
+/*증가 */
+.ico-plus {
+	width: 13px;
+	height: 13px;
+	background-image:
+		url(https://img.megabox.co.kr/static/pc/images/common/ico/ico-plus.png);
+}
+
+.store-view .box-store-view .right .type .receipt .line .input-text {
+	display: block;
+	float: left;
+	width: 42px;
+	text-align: center;
+	border: 1px solid #ccc;
+	border-width: 1px 0;
+}
+
+/* 수량  1표시 */
+.input-text[disabled], .input-text[readonly] {
+	color: #aaa;
+	background-color: #f7f8f9;
+}
+
+.input-text {
+	display: inline-block;
+	width: 100%;
+	height: 32px;
+	padding: 0 10px;
+	line-height: 30px;
+	color: #444;
+	border: 1px solid #d8d9db;
+	vertical-align: middle;
+	font-family: NanumBarunGothic, Dotum, '돋움', sans-serif;
+}
+
+/*가격 표시*/
+.store-view .box-store-view .right .type .receipt .line .money {
+	float: right;
+	color: #351f66;
+	line-height: 32px;
+}
+
+.store-view .box-store-view .right .type .receipt .line .money em {
+	float: left;
+	font-weight: 400;
+	font-size: 2em;
+}
+
+.store-view .box-store-view .right .type .receipt .line .money span {
+	float: left;
+	margin-left: 3px;
+	font-size: 1.3333em;
+}
+
+.store-view .box-store-view .right .type .tit {
+	display: table-cell;
+	width: 100px;
+	padding-top: 20px;
+	color: #222;
+	vertical-align: top;
+}
+
+.store-view .box-store-view .right .type .receipt .line {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
+
+/* 구매 선물 버튼 */
+.store-view .box-store-view .right .btn-group {
+	margin: 20px 0 0 0;
+	padding: 20px 0 0 0;
+	border-top: 1px solid #ebebeb;
+}
+
+.btn-group {
+	padding: 20px 0 30px 0;
+	text-align: center;
+}
+
+.store-view .box-store-view .right .btn-group .button {
+	float: left;
+	margin: 0;
+}
+
+a.button:active, a.button:focus, a.button:hover, a.button:visited {
+	color: #503396;
+}
+
+.button.large {
+	height: 46px;
+	padding: 0 30px;
+}
+
+a.button {
+	text-decoration: none;
+}
+
+a:link {
+	color: #444;
+}
+
+a.button.purple:active, a.button.purple:focus, a.button.purple:hover, a.button.purple:visited
+	{
+	color: #fff;
+}
+
+.button.purple {
+	color: #fff;
+	line-height: 42px;
+	border: 0;
+	background: #503396;
+}
+
+.button {
+	height: 36px;
+	margin: 0;
+	padding: 0 15px;
+	text-align: center;
+	line-height: 42px;
+	color: #503396;
+	font-weight: 400;
+	border-radius: 4px;
+	font-family: NanumBarunGothic, Dotum, '돋움', sans-serif;
+	text-decoration: none;
+	border: 1px solid #503396;
+	vertical-align: middle;
+	background-color: #fff;
+	cursor: pointer;
+}
+
+.btn-group, .btn-group-vertical {
+	position: relative;
+	vertical-align: middle;
+}
+#a2,#a4{
+	display: none;
+}

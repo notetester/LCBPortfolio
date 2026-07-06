@@ -1,0 +1,86 @@
+.footer {
+    width: 100vw;
+    display: block;
+    overflow: hidden;
+    padding: 10px 0;
+    box-sizing: border-box;
+    background-color: rgb(40, 0, 78);            
+    bottom: 0px;
+}
+
+.inner_footer {
+    display: block;
+    text-align:center;
+    width: 1100px;
+    height: 100%;
+    margin-left: 80px;
+
+}
+
+.inner_footer .logo_container {
+    width: 35%;
+    float: left;
+    height: 100%;
+    display: block;
+    margin-left: 210px;
+}
+
+.inner_footer .logo_container img {
+    width: 30%;
+    height: auto;
+}
+
+.inner_footer .inner_third {
+    width: 70%;
+    max-width: 10px;
+    float: left;
+    height: 100%;
+}
+
+
+
+.inner_footer .footer_third h1 {
+    font-family: 'arial';
+    font-size: 22px;
+    color: rgb(239, 232, 255);
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top:10px;
+}
+.inner_footer .footer_third p {
+    font-family: 'arial';
+    font-size: 14px;
+    font-weight: 200;
+    color: rgb(197, 172, 255);
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    padding-bottom: 0px;
+  
+}
+.help article > div {
+  border: 1px solid #dbdbdb;
+  height: 490.5px;
+}
+
+
+.service li {
+float: none;
+}
+.service li {
+  border-right: 1;
+  height: 163px;
+}
+#create-channel-add-button{
+  float:right;
+  width:85px;
+  height:30px;
+}
+
+.inner_footer{position: relative;}
+#create-channel-add-button{
+  position:absolute;
+  right:-50px;
+  top:50px;
+}

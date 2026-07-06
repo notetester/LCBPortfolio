@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lcb404.mapper.LikesMapper">
+	<select id="movieLike" resultType="int">
+			select count(*) from likes where MOVIE_CODE = #{vo.MOVIE_CODE} and MEMBERS_ID = #{MEMBERS_ID}
+	</select>
+	<insert id="setLiker">
+			insert into likes(MEMBERS_ID, MOVIE_CODE)
+			values(#{MEMBERS_ID},#{vo.MOVIE_CODE})
+	</insert>
+</mapper>

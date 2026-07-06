@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lcb404.mapper.TimeTableMapper">
+
+	<select id="getTime" resultType="TimeTableVO">
+		select * from timetable where date_format(TIMETABLE_START,'%y-%m-%d') like  CONCAT('%',${day},'%') order by TIMETABLE_NUMBER
+	</select>
+	
+	<select id="getDay" resultType="TimeTableVO">
+		select * from timetable where timetable_number = #{timetable_number}
+	</select>
+	
+	<select id="getPoster" resultType="TimeTableVO">
+		select * from timetable where timetable_number = #{timetable_number}
+	</select>
+	
+	<update id="total">
+		update timetable set TIMETABLE_TOTALSEAT = (TIMETABLE_TOTALSEAT-#{total}) where TIMETABLE_NUMBER = #{timetable_number}
+	</update>
+	
+	<select id="getMovieCode" resultType="int">
+		select MOVIE_CODE from timetable where TIMETABLE_NUMBER=#{timetable_number}
+	</select>
+	
+	<select id="getTimeTable" resultType="TimeTableVO">
+		select *from timetable where MOVIE_CODE = #{mno}
+	</select>
+	
+</mapper>

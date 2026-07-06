@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LCB Architecture</title>
+  <style>
+    body { margin: 0; font-family: Arial, "Noto Sans KR", sans-serif; color: #17181c; background: #fff; line-height: 1.7; }
+    main { max-width: 1040px; margin: 0 auto; padding: 56px 20px; }
+    a { color: #0f766e; font-weight: 700; text-decoration: none; }
+    h1 { margin: 0 0 18px; font-size: clamp(34px, 6vw, 58px); line-height: 1; letter-spacing: 0; }
+    h2 { margin-top: 36px; }
+    table { width: 100%; border-collapse: collapse; margin: 18px 0; }
+    th, td { border: 1px solid #d9dde3; padding: 12px; text-align: left; vertical-align: top; }
+    th { background: #f8f8f6; }
+    code { background: #f1f3f5; padding: 2px 5px; border-radius: 4px; }
+    pre { overflow-x: auto; background: #17181c; color: #fff; padding: 18px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <main>
+    <a href="./">Back to docs</a>
+    <h1>Architecture</h1>
+    <p>LCB는 Spring Boot가 아니라 전통적인 Spring MVC WAR 구조입니다. DispatcherServlet, XML 설정, JSP ViewResolver, MyBatis mapper XML을 중심으로 구성되어 있습니다.</p>
+
+    <h2>Request Flow</h2>
+    <pre><code>Browser
+  -> web.xml CharacterEncodingFilter
+  -> DispatcherServlet
+  -> interceptor-context.xml
+  -> Controller
+  -> Service
+  -> MyBatis Mapper
+  -> MySQL
+  -> JSP View</code></pre>
+
+    <h2>Layering</h2>
+    <table>
+      <thead>
+        <tr><th>Layer</th><th>Path</th><th>Role</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Controller</td><td><code>com.lcb404.controller</code></td><td>요청 매핑, 세션 확인, 화면 모델 구성, AJAX 응답</td></tr>
+        <tr><td>Service</td><td><code>com.lcb404.service</code></td><td>기능별 업무 로직과 mapper 호출 조합</td></tr>
+        <tr><td>Mapper interface</td><td><code>com.lcb404.mapper</code></td><td>MyBatis XML과 Java 메서드 연결</td></tr>
+        <tr><td>Mapper XML</td><td><code>src/main/resources/sqlmap</code></td><td>SQL 정의</td></tr>
+        <tr><td>View</td><td><code>src/main/webapp/WEB-INF/views</code></td><td>JSP/JSTL 화면 렌더링</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Important Modules</h2>
+    <table>
+      <thead>
+        <tr><th>Module</th><th>Files</th><th>Feature</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Movie</td><td><code>MovieController</code>, <code>MovieReplyController</code></td><td>영화 차트, 상세, 댓글, 좋아요</td></tr>
+        <tr><td>Reserve</td><td><code>ReserveController</code>, <code>TimeTableMapper</code></td><td>상영 시간, 좌석, 예매 내역</td></tr>
+        <tr><td>User</td><td><code>UserController</code>, <code>UserService</code></td><td>회원 가입, 로그인, 마이페이지, 계정 찾기</td></tr>
+        <tr><td>Board</td><td><code>BoardController</code>, <code>MissingBoardController</code></td><td>공지, Q&A, 분실물 게시판</td></tr>
+        <tr><td>Event/Store</td><td><code>EventController</code>, <code>StoreController</code></td><td>이벤트, 멤버십, 스토어</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Modernization Notes</h2>
+    <p>포트폴리오 단계에서는 원본 구조를 유지하고 빌드와 보안을 먼저 정상화했습니다. 다음 단계에서는 SQL migration 정리, Spring Security 도입, 입력 검증, 테스트 커버리지, JSP 중복 레이아웃 정리가 필요합니다.</p>
+  </main>
+</body>
+</html>

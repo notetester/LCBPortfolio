@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.lcb404.mapper.UserMapper">
+  
+  <select id="IdCheck" resultType="int">
+		select count(*) as total from members where MEMBERS_ID = #{MEMBERS_ID}
+	</select>
+  
+  <select id="getPw" resultType="String">
+  		select MEMBERS_PW from members where MEMBERS_ID = #{MEMBERS_ID} and MEMBERS_EMAIL = #{MEMBERS_EMAIL}
+  </select>
+  
+  <insert id="join">
+		insert into members(MEMBERS_ID, MEMBERS_PW, MEMBERS_NAME, MEMBERS_NICKNAME, MEMBERS_PHONE, MEMBERS_EMAIL, addrZipNum, addrBasic, addrDetail)
+		values(#{MEMBERS_ID},#{MEMBERS_PW},#{MEMBERS_NAME},#{MEMBERS_NICKNAME},#{MEMBERS_PHONE},#{MEMBERS_EMAIL},#{addrZipNum}, #{addrBasic}, #{addrDetail} )
+  </insert>
+  	
+  <select id="login" resultType="int">
+		select count(*) as count from members
+		where MEMBERS_ID = #{MEMBERS_ID} and MEMBERS_PW = #{MEMBERS_PW}
+	</select>
+	
+	<select id = "statusCheck" resultType="int">
+	select count(*)as count from members WHERE MEMBERS_ID = #{MEMBERS_ID} AND MEMBERS_STATUS = 'kakao'
+	</select>
+	
+	<select id = "getGrade" resultType="int">
+	select count(*)as count from members WHERE MEMBERS_ID = #{MEMBERS_ID} AND MEMBERS_GRADE = 'lcb'
+	</select>
+  
+  	<select id="userInfo" resultType="UserVO">
+		select * from members where MEMBERS_ID = #{MEMBERS_ID}
+	</select>
+	
+	<select id="getId" resultType="String">
+		select MEMBERS_ID from members where MEMBERS_EMAIL = #{MEMBERS_EMAIL}
+	</select>
+  
+	<update id="Update">
+		update members set MEMBERS_NICKNAME=#{MEMBERS_NICKNAME}, MEMBERS_PHONE=#{MEMBERS_PHONE}, MEMBERS_EMAIL=#{MEMBERS_EMAIL},addrZipNum=#{addrZipNum},addrBasic=#{addrBasic},addrDetail=#{addrDetail} where MEMBERS_ID=#{MEMBERS_ID}
+	</update>
+	<update id="updatePoint">
+		update members set MEMBERS_POINT=#{MEMBERS_POINT} where MEMBERS_ID=#{MEMBERS_ID}
+	</update>
+	<delete id="delete">
+		delete from members where MEMBERS_ID = #{MEMBERS_ID} and MEMBERS_PW = #{pw}
+	</delete>
+	
+	<insert id ="Kakaojoin">
+	insert into members(MEMBERS_ID,MEMBERS_NAME, MEMBERS_NICKNAME, MEMBERS_PHONE, MEMBERS_EMAIL, addrZipNum, addrBasic, addrDetail,MEMBERS_STATUS)
+		values(#{MEMBERS_ID},#{MEMBERS_NAME},#{MEMBERS_NICKNAME},#{MEMBERS_PHONE},#{MEMBERS_EMAIL},#{addrZipNum}, #{addrBasic}, #{addrDetail},'kakao' )
+	</insert>
+	
+	
+  </mapper>

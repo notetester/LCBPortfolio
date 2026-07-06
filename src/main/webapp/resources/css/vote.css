@@ -1,0 +1,28 @@
+.niky-inner img{
+    width:250px;
+    height: 300px;
+ }
+ .info{
+    float:left;
+ }
+ .price{
+       float:right;
+ }
+
+ .prod-content > .price{
+      margin-right: 13px;   
+ }
+ button{
+    width:70px;
+    color: #fff;
+    background-color: rgb(40, 0, 78);
+    cursor: pointer;
+ }
+ 
+ button:focus {
+     outline: 1px dotted #000;
+  }
+  
+  button:hover {
+     background-color: #351f67;
+  }

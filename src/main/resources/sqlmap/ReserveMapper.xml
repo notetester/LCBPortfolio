@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lcb404.mapper.ReserveMapper">
+	<insert id="setSeat">
+		insert into reservation(timetable_number, MEMBERS_ID ,reservation_row,reservation_seat)
+		values
+		( #{seatNum.timetable_number}, #{MEMBERS_ID}, #{seatNum.row}, #{seatNum.seat})		
+	</insert>
+	<select id="getList" resultType="ReserveVO">
+		select * from reservation where timetable_number = #{timetable_number}
+	</select>
+	
+	<select id="getTicket" resultType="int">
+		select count(*) as count from reservation where MEMBERS_ID = #{MEMBERS_ID}
+	</select>
+	
+	<select id="getHistory" resultType="ReserveVO">
+		<![CDATA[	
+			 select * from
+			(select @rownum:=@rownum+1 as rn, A.* from
+			(select * from reservation where MEMBERS_ID = #{MEMBERS_ID} order by reservation_number desc) A, (SELECT @ROWNUM := 0 ) B) C
+		   where rn > (#{cri.pageNum}-1)*#{cri.amount} and rn <=#{cri.pageNum}*#{cri.amount}
+	 ]]>
+	</select>
+	
+	
+	<select id="getTotal" resultType="int">
+		select count(*) as count from reservation where MEMBERS_ID = #{MEMBERS_ID}
+	</select>
+	
+	<select id="getMovieReserve" resultType="int">
+		select count(*) as count from reservation where timetable_number = #{timetable_number}
+	</select>	
+	
+	<select id="getTotalAll" resultType="int">
+		select count(*) as count from reservation
+	</select>
+	
+</mapper>

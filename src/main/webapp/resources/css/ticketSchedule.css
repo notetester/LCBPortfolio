@@ -1,0 +1,518 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	overflow: auto;
+	overflow-y: scroll;
+	letter-spacing: 0;
+	line-height: 1.5;
+	font-size: 15px;
+	color: #444;
+}
+
+.time-schedule .date-area button.on {
+	background-color: #f7f8f9;
+	border-bottom: 3px solid #503396;
+}
+
+.time-schedule .date-area button {
+	width: 70px;
+	height: 72px;
+	border: 0;
+	background-color: transparent;
+	float: left;
+	border-bottom: 3px solid transparent;
+	font-weight: 400;
+}
+
+[type=button], [type=reset], [type=submit], button {
+	-webkit-appearance: button;
+}
+
+button {
+	cursor: pointer;
+	letter-spacing: -.5px;
+	font-weight: 400;	
+}
+
+button, select {
+	text-transform: none;
+}
+
+button, input {
+	overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+	margin: 0;
+	font-family: inherit;
+	font-size: 1em;
+	line-height: 1.15;
+}
+
+.time-schedule .btn-next, .time-schedule .btn-pre {
+	width: 30px;
+	height: 73px;
+	border: 0 !important;
+	background-color: transparent !important;
+	float: left;
+}
+
+[type=button], [type=reset], [type=submit], button {
+	-webkit-appearance: button;
+}
+
+button {
+	cursor: pointer;
+	letter-spacing: -.5px;
+	font-weight: 400;
+	font-family: NanumBarunGothic, Dotum, '돋움', sans-serif;
+}
+
+button, select {
+	text-transform: none;
+}
+
+button, input {
+	overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+	margin: 0;
+	font-family: inherit;
+	font-size: 1em;
+	line-height: 1.15;
+}
+
+.time-schedule .year {
+	position: absolute;
+	top: 0;
+	font-size: .8667em;
+	width: 70px;
+	height: 28px;
+	line-height: 28px;
+	margin-top: -14px;
+	border: 1px solid #d8d9db;
+	border-radius: 15px;
+	text-align: center;
+	background-color: #fff;
+	font-weight: 400;
+}
+
+.time-schedule {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.time-schedule .date-area {
+	height: 73px;
+	float: left;
+}
+
+.time-schedule .date-area button.sat {
+	color: #3b5fcb;
+}
+
+.time-schedule .date-area button.holi {
+	color: #e81002;
+}
+
+.time-schedule .date-area button.disabled {
+	font-weight: 400;
+	opacity: .5;
+	cursor: default;
+}
+
+.time-schedule .ico-cld-pre {
+	margin-right: 1px;
+}
+
+.ico-cld-pre {
+	width: 7px;
+	height: 12px;
+	background-image:
+		url(https://img.megabox.co.kr/static/pc/images/common/ico/ico-cld-pre.png);
+}
+
+.ico-cld-next {
+	width: 7px;
+	height: 12px;
+	background-image:
+		url(https://img.megabox.co.kr/static/pc/images/common/ico/ico-cld-next.png);
+}
+
+.iconset {
+	overflow: hidden;
+	display: inline-block;
+	margin: -1px 0 0 0;
+	padding: 0;
+	font-size: 0;
+	line-height: 0;
+	vertical-align: middle;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+}
+
+.time-schedule:after, .time-schedule:before {
+	content: '';
+	display: table;
+}
+
+.time-schedule:after {
+	clear: both;
+}
+
+.time-schedule:after, .time-schedule:before {
+	content: '';
+	display: table;
+}
+
+.tab-block:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 35px;
+    width: 100%;    
+    background-color: #fff;
+}
+.time-table-page .movie-choice-area .wrap .tab-list-choice {
+    width: 100%;
+    height: 54px;
+    border-bottom: 0px;
+}
+button {
+	display: inline-block;
+}
+
+.ir {
+	text-indent: -9999px;
+	position: fixed;
+	top: -9999px;
+	font-size: 1px;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+
+em {
+	font-style: normal;
+	display: block;
+}
+
+.time-schedule .date-area button span {
+	vertical-align: bottom;
+	line-height: 1.1;
+}
+
+.inner-wrap {
+	width: 1100px;
+	margin: 0 auto;
+}
+
+.inner-wrap .wrap{
+	height: 85px;
+}
+
+.time-schedule .date-list {
+	width: 980px;
+	overflow: hidden;
+	float: left;
+	height: 100px;
+}
+
+.year-area {
+	position: relative;
+}
+
+.year {
+	position: absolute;
+}
+
+.time-schedule .btn-calendar-large {
+	width: 50px;
+	height: 72px;
+	border: 0;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -999px;
+	border-bottom: 0 !important;
+	background-color: transparent !important;
+}
+
+.btn-calendar-large {
+	background:
+		url(https://img.megabox.co.kr/static/pc/images/common/ico/ico-calendar-w20.png)
+		no-repeat center;
+}
+
+.tab-block:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 35px;
+	width: 100%;
+	height: 1px;
+	background-color: #d8d9db;
+}
+
+a:-webkit-any-link {
+	color: -webkit-link;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+li {
+	text-align: -webkit-match-parent;
+}
+
+ol, ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.tab-block ul li .btn {
+	display: block;
+	width: 100%;
+	height: 34px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	line-height: 34px;
+	text-align: center;
+	background-color: transparent;
+	text-decoration: none;
+	color: #555;
+}
+
+.tab-block ul li.hover:first-child, .reserve.theater-list-box .tab-block ul li.on:first-child
+	{
+	border-color: #555;
+}
+
+.tab-block ul li.hover, .reserve.theater-list-box .tab-block ul li.on {
+	border-color: #555;
+}
+
+.tab-block ul li:nth-child(1) {
+	border-left: 1px solid #d8d9db;
+}
+
+.tab-block ul li {
+	position: relative;
+	float: left;
+	width: 137px;
+	border: 1px solid #d8d9db;
+	border-left: 0;
+	color: #555;
+}
+
+.tab-block ul li.on .btn {
+	color: #fff;
+	background-color: #555;
+}
+
+.theater-list .theater-type-box {
+	overflow: hidden;
+	width: 100%;
+	border-bottom: 1px solid #eaeaea;
+}
+
+.theater-list-box .theater-list .theater-type-box {
+	overflow: hidden;
+	width: 100%;
+	position: relative;
+}
+
+.theater-area-click {
+	padding: 0 0 15px 0;
+	border-bottom: 1px solid #eaeaea;
+	font-weight: 700;
+	font-size: 1.2em;
+}
+
+.theater-list-box .theater-list .theater-type-box .theater-type {
+	text-align: left;
+	width: 170px;
+	display: table-cell;
+	vertical-align: middle;
+	position: absolute;
+	top: 20px;
+	left: 0;
+	padding: 0 !important;
+}
+
+.theater-list-box .theater-list .theater-type-box .theater-type p.theater-name
+	{
+	font-size: 1.2em;
+	color: #444;
+	font-weight: 400;
+	margin-bottom: 10px;
+	line-height: 1em;
+}
+
+.theater-area-click a {
+	text-decoration: none;
+	color: #555;
+}
+
+.reserve.theater-list-box .theater-list .theater-type-box .theater-type-area
+	{
+	display: table-cell;
+	vertical-align: middle;
+	width: 100px;
+	background-color: #f2f4f5;
+	text-align: center;
+	color: #444;
+	font-weight: 700;
+	border-bottom: 0;
+}
+
+.theater-list {
+	position: relative;
+}
+
+.theater-list .theater-type-box .theater-time .time-list-table {
+	border-top: 1px solid #ebebeb;
+	border-left: 1px solid #ebebeb;
+	width: 800px;
+	margin-left: 9px;
+	width: auto;
+	table-layout: auto;
+}
+
+table caption {
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	opacity: 0;
+}
+
+.time-list-table colgroup {
+	display: none;
+}
+
+table {
+	width: 100%;
+	margin: 0;
+	border: 0;
+	table-layout: fixed;
+	border-collapse: collapse;
+	empty-cells: show;
+}
+
+tbody {
+	display: table-row-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+
+tr {
+	display: table-row;
+	vertical-align: inherit;
+	border-color: inherit;
+}
+
+.time-list-table tbody tr td {
+	width: 99px;
+	border-right: 1px solid #ebebeb;
+	border-bottom: 1px solid #ebebeb;
+	text-align: center;
+}
+
+.time-list-table tbody tr td .td-ab {
+	width: 100%;
+	height: 93px;
+	display: table;
+}
+
+.time-list-table tbody tr td .td-ab .txt-center {
+	display: table-cell;
+	vertical-align: middle;
+	position: relative;
+}
+
+.time-list-table tbody tr td .td-ab .txt-center a {
+	display: inline-block;
+	width: 100%;
+}
+
+.time-list-table tbody tr td .td-ab .ico-box {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	z-index: 1;
+}
+
+.time-list-table tbody tr td .td-ab p.time {
+	font-size: 1.2em;
+	color: #444;
+	font-weight: 400;
+	line-height: 1em;
+	font-family: Roboto;
+}
+
+.time-list-table tbody tr td .td-ab p.chair {
+	color: #01738b;
+}
+
+.time-list-table tbody tr td .td-ab:hover .play-time p:nth-child(1) {
+	margin-top: 12px;
+}
+
+.time-list-table tbody tr td .td-ab .play-time {
+	display: none;
+}
+
+.theater-list .theater-type-box .theater-time {
+	width: 100%;
+	margin-left: 190px;
+}
+
+.theater-type-area {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100px;
+	background-color: #f2f4f5;
+	text-align: center;
+	color: #444;
+	font-weight: 700;
+	border-bottom: 0;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.theater-time {
+	position: relative;
+	float: left;
+	width: 81%;
+	margin: 20px 0;
+}
+
+.reserve.theater-list-box {
+	width: 100%;
+	display: table;
+	border-top: 0;
+}
+
+.theater-time-box {
+	position: absolute;
+	top: -16px;
+	z-index: auto;
+	margin-left: 100px;
+}
+.txt-center a{ text-decoration: none;}
+.time-list-table tbody tr td .td-ab {
+    width: 100%;
+    height: 93px;
+    display: table;
+}
+.body-wrap{ 
+	width: 68%;
+    height: 70%;
+    margin: 0 auto;
+}
+.txt-center{ height:93px;}

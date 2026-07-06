@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lcb404.mapper.MovieMapper">
+
+	<select id ="getList" resultType="MovieVO">
+	select * from movie where MOVIE_CODE = #{MOVIE_CODE}
+	</select>
+	<update id="updateLike">
+		update movie set MOVIE_HIT = #{MOVIE_HIT} where MOVIE_CODE = #{MOVIE_CODE}
+	</update>
+	
+	<update id="updateScore">
+		update movie set MOVIE_PERSON = #{person} where MOVIE_CODE = #{mno}
+	</update>
+	<update id="updateRate">
+		update movie set RESERVE_RATE = #{result} where MOVIE_CODE = #{mno}	
+	</update>
+
+</mapper>

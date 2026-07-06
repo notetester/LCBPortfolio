@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- doctype을 configuration으로 선언하면 마이네티스의 설정파일로 사용됩니다. -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<configuration>
+	<!-- 마이바티스 설정관련 xml파일이 됩니다 -->
+	<typeAliases>
+		<typeAlias type="com.lcb404.command.NoticeBoardVO" alias="NoticeBoardVO"/>
+		<typeAlias type="com.lcb404.command.MissingBoardVO" alias="MissingBoardVO"/>
+		<typeAlias type="com.lcb404.command.MissReplyVO" alias="MissReplyVO"/>
+		<typeAlias type="com.lcb404.command.MovieReplyVO" alias="MovieReplyVO"/>
+		<typeAlias type="com.lcb404.command.QNABoardVO" alias="QNABoardVO"/>
+		<typeAlias type="com.lcb404.command.QNAReplyVO" alias="QNAReplyVO"/>
+		<typeAlias type="com.lcb404.command.VoteVO" alias="VoteVO"/>
+		<typeAlias type="com.lcb404.command.ReserveVO" alias="ReserveVO"/>
+		<typeAlias type="com.lcb404.command.TimeTableVO" alias="TimeTableVO"/>
+		<typeAlias type="com.lcb404.command.UserVO" alias="UserVO"/>	
+		<typeAlias type="com.lcb404.command.PopcornVO" alias="PopcornVO"/>
+		<typeAlias type="com.lcb404.command.MovieVO" alias="MovieVO"/>		
+		<typeAlias type="com.lcb404.command.HrVO" alias="HrVO"/>
+		<typeAlias type="com.lcb404.command.EventVO" alias="EventVO"/>
+		<typeAlias type="com.lcb404.command.ScoreVO" alias="ScoreVO"/>
+	</typeAliases>
+</configuration>

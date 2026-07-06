@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lcb404.mapper.ScoreMapper">
+	<insert id="registScore">
+		insert into score(MOVIE_CODE,MEMBERS_ID,SCORE) values(#{mno},#{MEMBERS_ID},#{score})
+	</insert>
+	
+	<select id="getTotal" resultType="int">
+		select count(*) as count from score where MOVIE_CODE = #{mno}
+	</select>
+	
+	<select id="getList" resultType="ScoreVO">
+		select * from score where MOVIE_CODE = #{mno}
+	</select>	
+	
+</mapper>

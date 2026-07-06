@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lcb404.mapper.MissingBoardMapper">
+
+<insert id = "Missingregist" >
+insert into found(MEMBERS_ID,found_place,found_hpnum1,found_hpnum2,found_hpnum3,found_email,FOUND_TITLE,FOUND_CONTENT,LOCA1,LOCA2,LOCA3)
+values(#{members_id},#{found_place},#{found_hpnum1},#{found_hpnum2},#{found_hpnum3},#{found_email},#{found_title},#{found_content},#{Loca1},#{Loca2},#{Loca3} )
+</insert>
+
+<select id = "MissinggetList" resultType="MissingBoardVO" >
+<![CDATA[
+      select * from
+      (select @rownum:=@rownum+1 as rn, A.* from 
+      (select * from found where 
+      ]]>
+   <choose>
+      <when test="searchKey==null or searchKey==''">1=1</when>
+      <otherwise>found_title like CONCAT('%',#{searchKey},'%')</otherwise>
+   </choose>
+   
+   <![CDATA[
+         order by found_number desc
+      )A,(SELECT @ROWNUM := 0 ) B ) C where rn>(#{pageNum}-1) * #{amount}  and rn<= #{pageNum} * #{amount}
+      ]]>
+</select>
+
+
+<select id = "MissingMyList" resultType="MissingBoardVO" >
+<![CDATA[
+      select * from
+      (select @rownum:=@rownum+1 as rn, A.* from  
+      (select * from found where members_id=#{MEMBERS_ID}
+         order by found_number desc
+      ) A,(SELECT @ROWNUM := 0 ) B) C where rn>(#{cri.pageNum}-1) * #{cri.amount}  and rn<= #{cri.pageNum} * #{cri.amount}
+      ]]>
+</select>
+
+<select id="getTotal" resultType="int">
+            select count(*) from found where 
+      
+      <choose>
+      
+      <when test="searchKey==null or searchKey==''">1=1</when>
+      <otherwise>found_title like CONCAT('%',#{searchKey},'%')</otherwise>
+      
+      </choose>
+   </select>
+   <select id="getMyTotal" resultType="int">
+            select count(*) from found where MEMBERS_ID=#{MEMBERS_ID}
+   </select>
+   <select id="getContent" resultType="MissingBoardVO">
+		select * from found where found_number = #{found_number}
+	</select>
+	
+	<update id="Update">
+		update found set found_title=#{found_title}, found_content=#{found_content} where found_number=#{found_number}
+	</update>
+
+
+	<delete id="delete">
+		delete from found where found_number = #{found_number}
+	</delete>
+</mapper>

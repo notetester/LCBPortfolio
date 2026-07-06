@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lcb404.mapper.VoteMapper">
+ 	<select id="getInfo" resultType="VoteVO">
+ 		select * from vote order by vote_cnt desc
+ 	</select>
+ 	
+ 	<update id="setVote">
+ 		update vote set vote_cnt = #{cnt} where vote_num = #{num}
+ 	</update>
+ 	
+ 	<update id="updateVote">
+ 		update members set VOTER = 1 where MEMBERS_ID =#{MEMBERS_ID}
+ 	</update>
+ 	
+</mapper>

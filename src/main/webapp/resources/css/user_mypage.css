@@ -1,0 +1,159 @@
+* {
+    box-sizing: border-box;
+}
+        p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+h2{text-align: center;}
+
+.my-magabox-info .top .grade{
+	float:left;
+}
+.my-magabox-info .top .grade .link {
+    padding: 15px 0 0 0;
+}
+
+.my-magabox-info .top .grade .name {
+    font-size: 1.8666em;
+    line-height: 1.3;
+    color: #222;
+}
+.my-magabox-info .top .grade .link a {
+    margin-right: 10px;
+    color: #666;
+}
+.my-magabox-info .bottom .coupon .list ul li span {
+    display: block;
+    float: left;
+}
+.my-magabox-info .top {
+    position: relative;
+    height: 198px;
+    padding: 30px 30px 0 0;
+    float:left;
+}
+.my-magabox-info .bottom {
+	float:right;
+    overflow: hidden;
+    height: 205px;
+    padding: 26px 30px 29px 30px;
+    background-color: #eaebed;
+    margin: -2px 0px 0px 51px;
+}
+.my-magabox-info .bottom .coupon {
+    float: left;
+    width: 206px;
+    height: 100%;
+    padding: 0 0 20px 0px;
+    /* border-left: 1px solid #d8d9db; */
+}
+.ico-arr-right-gray {
+    overflow: hidden;
+    width: 10px;
+    height: 22px;
+    background-image: url(https://img.megabox.co.kr/static/pc/images/common/ico/ico-arr-right-gray.png);
+}
+.iconset {
+    overflow: hidden;
+    display: inline-block;
+    margin: 0px 0 0 0;
+    padding: 0;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: middle;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+.my-magabox-info .bottom .coupon .list ul li {
+    overflow: hidden;
+    padding: 9px 0 0 0;
+    line-height: 1.1;
+}
+a:visited {
+    color: #666;
+    text-decoration: none;
+    outline: 1px dotted #000;
+}
+
+a:link {
+    color: #444;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+div {
+    display: block;
+}
+.my-magabox-info {
+    overflow: hidden;
+    height: 205px;
+    border-radius: 10px;
+    background-color: #f3f4f6;
+    width: 45%;
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid #d8d9db;
+    border-radius: 10px;
+  
+}
+.my-magabox-info .top {
+    position: relative;
+    height: 700px;
+    padding: 0px 0px 0 0;
+    text-align: center;
+}
+.my-magabox-info .top .photo {
+    float: left;
+    width: 200px;
+    padding: 20px 0 0 60px;
+}
+.kakao{ text-align: center;}
+.list{text-align: center; }
+.list ul li{background-color: #999; font-size: 16px;}
+.list ul{margin: 0px;}
+.help article.help_box3 > div,.help article.help_box2 > div,.help article.help_box1 > div  {
+    border: 1px solid #dbdbdb;
+}
+
+.QNA ul li ul li {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    padding: 17px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.Missing ul li ul li {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    padding: 17px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.pagination li{
+	width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    padding: 17px;
+    border: opx;
+}
+
+.pagination {
+	padding-left: 95px;
+}
+
+#beforeList{
+	display: none;
+}
+#send-to-btn img{
+	width:55px;
+	height:55px;
+}
+.text-center{margin: 0 auto;}

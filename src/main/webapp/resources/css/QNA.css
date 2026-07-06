@@ -1,0 +1,137 @@
+.all{margin-left: 500px; margin-right:120px;}
+
+
+body {
+ 
+    
+    line-height: 1.5;
+    font-size: 15px;
+    color: #444;
+    font-weight: 400;
+    font-family: NanumBarunGothic,Dotum,'돋움',sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+.tit{
+     padding: 0 0 26px 0;
+    font-size: 1.8666em;
+    font-weight: 400;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    color : #503396;;
+    font-weight: bold; 
+    
+}
+.tit-content{
+font-size : 1.6em;}
+
+table {
+   
+    width: 70%;
+    margin: 0;
+    border: 0;
+    table-layout: fixed;
+    border-collapse: collapse;
+    empty-cells: show;
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    border-spacing: 2px;
+    -webkit-border-horizontal-spacing: 2px;
+    -webkit-border-vertical-spacing: 2px;
+    border-color: grey;
+     border-collapse: collapse;
+     
+     
+}
+
+
+th{
+   padding: 10px 20px;
+   border:1px solid #eaeaea;
+   background-color: #f7f8f9;
+}
+
+td{
+   padding: 10px 20px;
+   border:1px solid #eaeaea;
+}
+tr{   
+   padding: 10px 20px;
+   border:1px solid #eaeaea;
+}
+
+.textarea {
+   
+    display: inline-block;
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    line-height: 16px;
+    color: #333;
+    border-radius: 0!important;
+    border: 1px solid #d8d9db;
+    vertical-align: middle;
+    font-family: NanumBarunGothic,Dotum,'돋움',sans-serif;
+}
+
+.count {
+   text-align: right;
+}
+
+.uploadBtn{
+display: inline-block;
+}
+.table-wrap mt10{padding:0px 500px;}
+
+.btn-group {
+    padding: 20px;
+    margin-left: 400px;
+   
+}
+.button.purple {
+    color: #fff;
+    line-height: 36px;
+    border: 0;
+    background: #503396;
+}
+.button.large {
+    height: 46px;
+    padding: 0 30px;
+    line-height: 44px;
+}
+a.button.purple:active, a.button.purple:focus, a.button.purple:hover, a.button.purple:visited {
+    color: #fff;
+}
+.button.purple:hover {
+    background-color: #351f67;
+}
+a.button:focus {
+    outline: 1px dotted #000;
+}
+.button.purple {
+    color: #fff;
+    line-height: 36px;
+    border: 0;
+    background: #503396;
+}
+.button {
+    display: inline-block;
+    height: 36px;
+    margin: 0;
+    padding: 0 15px;
+    text-align: center;
+    line-height: 34px;
+    color: #503396;
+    font-weight: 400;
+    border-radius: 4px;
+    font-family: NanumBarunGothic,Dotum,'돋움',sans-serif;
+    text-decoration: none;
+    border: 1px solid #503396;
+    vertical-align: middle;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+   xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+   xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+      http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+   <!-- Root Context: defines shared resources visible to all other web components -->
+   <!-- classpath:/ 는 src/main/resources 폴더 아래 파일을 팜조할 수 있습니다. -->
+   <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <property name="locations">
+         <list>
+            <value>classpath:/db-config/Hikari.properties</value>
+            <value>classpath:/mail-config/mail.properties</value>
+         </list>
+      </property>
+   </bean>
+      
+       <!-- 히카리 커넥션 DB설정 -->
+    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig" > 
+       <property name="driverClassName" value="${ds.driverClassName}"/> 
+       <property name="jdbcUrl" value="${ds.url}"/> 
+       <property name="username" value="${ds.username}" /> 
+       <property name="password" value= "${ds.password}" /> 
+    </bean>
+   
+   <!-- 위에 설정된 DB정보를 DataSource객체에 의존성 주입 -->
+   <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+      <constructor-arg ref="hikariConfig"/>
+   </bean>
+   
+   <!-- 세터주입으로 dataSource객체를 주입 -->
+   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+      <property name="dataSource" ref="dataSource"/>
+      <!-- 마이바티스 외부 설정 파일 -->
+      <property name="configLocation" value="classpath:/mybatis-config/mybatis-config.xml"/>
+      <property name="mapperLocations" value="classpath:/sqlmap/*.xml"/>
+   </bean>   
+	
+	<bean id="mailSender" 
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	        <property name="host" value="${mail.host}" />
+	        <property name="port" value="${mail.port}" />
+	        <property name="username" value="${mail.username}" />
+	        <property name="password" value="${mail.password}" />
+	        <property name="javaMailProperties">
+	            <props>	            	
+	                <prop key="mail.transport.protocol">${mail.transport.protocol}</prop>
+	                <prop key="mail.smtp.starttls.enable">${mail.smtp.starttls.enable}</prop>
+        			<prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+	                <prop key="mail.debug">${mail.debug}</prop>
+	            </props>
+	        </property>
+	   </bean>
+   
+   <!-- 마이바티스 xml파일을 자동으로 읽어서 빈으로 생성 -->      
+   <mybatis-spring:scan base-package="com.lcb404.*"/>   
+   
+</beans>

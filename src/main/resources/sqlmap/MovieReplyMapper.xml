@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lcb404.mapper.MovieReplyMapper">
+	<insert id="replyRegist">
+		insert into moviereply(mno,reply,replyId,replyPw)
+		values(#{mno},#{reply},#{replyId},#{replyPw})
+	</insert>
+	
+	<select id="getList" resultType="MovieReplyVO">	
+	 <![CDATA[
+	 select * from
+			(select @rownum:=@rownum+1 as rn, A.* from       	   
+			(select * from moviereply where mno = #{mno} order by rno desc) A,(SELECT @ROWNUM := 0 ) B) C
+			where rn > (#{cri.pageNum}-1)*#{cri.amount} and rn <=#{cri.pageNum}*#{cri.amount}
+	 ]]>
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		select count(*) as mno from moviereply where mno = #{mno}
+	</select>
+	
+	<!--  
+	<select id="getReplyPw" resultType = "int">
+		select count(*) as result 
+		from freereply where rno = #{rno} and replyPw = #{replyPw}
+	</select>
+	-->
+	<select id="getReplyPw" resultType="String">
+		select replyPw from moviereply where rno = #{rno}
+	</select>
+	
+	<update id="replyUpdate">
+		update moviereply set reply = #{reply}, replydate= current_timestamp() where rno = #{rno}
+	</update>
+	
+	<delete id="replyDelete">
+		delete from moviereply where rno = #{rno}
+	</delete>
+</mapper>

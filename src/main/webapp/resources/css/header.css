@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+
+	body{font-family: 'Noto Sans KR', sans-serif;   overflow-x:hidden;}
+
+	*	{
+        padding: 0;
+        margin: 0;
+         }
+     @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+          height: auto;
+        }
+      }  
+        
+
+        .menu-a{            
+            text-align: center;
+            background-color: rgb(40, 0, 78) ;
+            color: white;
+            width: 100%;
+            font-weight: 600;
+            
+        }
+        .menu-a ul{
+            
+            background-color: rgba(128, 0, 128, 0.562);
+        }
+        .menu-a > ul {
+        	
+            margin-left: 190px;
+            background-color: rgb(40, 0, 78) ;
+            display: inline-block;
+            border-radius: 5px;
+            padding: 40px, 10px;
+            margin:0;
+            
+        }
+        .menu-a > ul >li {
+            display: inline-block;       
+        }
+
+        .menu-a li> a {
+            /* background-color: red;  */
+            padding: 10px;
+            display: block;
+        }
+        .menu-a li:hover{
+            background-color: black;
+            color: white;
+            text-decoration: none;
+        }
+        .menu-a li {
+            position: relative;
+        
+        }
+        .menu-a ul ul {
+            display: none;
+            position: absolute;
+            margin:0;
+            left: 0;
+        }
+        .menu-a li:hover>ul {
+            display: block;
+        }
+        .menu-a, .on {
+          font-size: large;
+          z-index: 1;
+        }
+        .on{ font-size: small;}
+        .menu-b{          
+          background-color: rgb(40, 0, 78) ;
+          color: white;
+          width: 100%;          
+          font-weight: 600;          
+        }
+        .menu-b ul{
+          float: right;
+        }
+        .menu-b ul li{display: inline-block;}
+        .menu-a li> a {
+        	color: white;
+        	text-decoration:none;
+        }
+        .menu-b li> a {
+        	color: white;
+        	text-decoration:none;
+        }
+        img{
+        	vertical-align: middle;
+        }
+        header{
+        	z-index: 1050;
+        }
