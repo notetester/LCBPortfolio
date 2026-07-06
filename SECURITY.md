@@ -1,19 +1,19 @@
 # Security Notes
 
-This public portfolio repository must not contain production credentials.
+LCB Cinema is a public portfolio repository. Production credentials, private API keys, SMTP passwords, and database passwords must not be committed.
 
-The surviving legacy source snapshot included hardcoded database, SMTP, and third-party JavaScript keys. Those values were removed from the current tree and replaced with local placeholders. Any credential that ever appeared in the original legacy project should be treated as compromised and rotated or revoked.
+## Current Policy
 
-## Current Handling
+- Database, mail, and third-party JavaScript settings use placeholders in the public tree.
+- Local runtime values should be kept in private environment-specific files or deployment settings.
+- Build outputs such as `target/` and WAR files are excluded from version control.
+- Any credential accidentally committed to a public repository should be rotated immediately.
 
-- Database configuration uses localhost demo defaults in `src/main/resources/db-config/Hikari.properties`.
-- SMTP configuration uses local dummy values in `src/main/resources/mail-config/mail.properties`.
-- Kakao JavaScript integration points are guarded behind empty placeholder keys.
-- Build artifacts are ignored with `target/` and `*.war`.
+## Local Configuration
 
-## Before Real Deployment
+Use these files as local configuration points when running the Spring MVC application:
 
-- Provide secrets through an external secret manager or server environment.
-- Restrict all third-party API keys by domain and API scope.
-- Recreate the database schema from reviewed migration scripts only.
-- Run dependency and secret scanning before publishing a release.
+- `src/main/resources/db-config/Hikari.properties`
+- `src/main/resources/mail-config/mail.properties`
+
+Keep real values outside public commits.

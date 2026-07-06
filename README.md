@@ -1,12 +1,10 @@
-# LCB Cinema Portfolio
+# LCB Cinema
 
-> Java Spring MVC, JSP, MyBatis 기반 영화 예매 서비스의 공개 포트폴리오 재구성본입니다.
-
-원본 팀 이력과 커밋 히스토리는 보존되지 않았기 때문에, 이 저장소는 남아 있는 소스 스냅샷을 기준으로 제가 단독으로 복구, 보안 정리, 빌드 정상화, 포트폴리오 문서화한 버전입니다.
+> 영화 탐색, 시간표, 좌석 예매, 스토어, 고객 게시판, 같이 보기 채팅, 운영 화면을 포함한 개인 영화관 서비스 포트폴리오입니다.
 
 <p align="center">
-  <a href="https://notetester.github.io/LCBPortfolio/"><b>Live Portfolio</b></a> ·
-  <a href="https://notetester.github.io/LCBPortfolio/demo/"><b>Static Demo</b></a> ·
+  <a href="https://notetester.github.io/LCBPortfolio/"><b>Live Service Demo</b></a> ·
+  <a href="https://notetester.github.io/LCBPortfolio/#booking"><b>Booking Flow</b></a> ·
   <a href="https://notetester.github.io/LCBPortfolio/docs/"><b>Technical Notes</b></a> ·
   <a href="SECURITY.md"><b>Security</b></a>
 </p>
@@ -17,33 +15,30 @@
 
 | Item | Detail |
 | --- | --- |
-| Project | 영화 조회, 예매, 좌석 선택, 리뷰, Q&A, 이벤트, 스토어, 회원, 같이 보기 채팅 기능을 포함한 영화관 웹 서비스 |
-| Role | 개인 포트폴리오 재구성. 유실된 팀/커밋 이력은 기재하지 않음 |
+| Project | 영화관 웹 서비스 |
+| Role | 기획, 화면 설계, 구현, 문서화 |
 | Backend | Java 8 target, Spring MVC 5, MyBatis, HikariCP, MySQL, JavaMail, WebSocket |
 | View | JSP/JSTL, Bootstrap, jQuery |
 | Packaging | Maven WAR |
-| Portfolio layer | GitHub Pages 정적 데모, 기술 문서, 보안 정리 문서 |
-
-## What Was Recovered
-
-- Maven 빌드 실패 원인이던 구버전 Lombok과 Maven plugin 문제를 정리했습니다.
-- `target/` 산출물, IDE 메타파일, 로컬 설정 파일이 공개 repo에 섞이지 않도록 `.gitignore`를 정리했습니다.
-- DB, SMTP, Kakao 앱 키처럼 공개 repo에 남기면 안 되는 값을 더미 설정으로 치환했습니다.
-- 실제 서버와 DB 없이도 흐름을 설명할 수 있도록 GitHub Pages용 정적 데모를 추가했습니다.
-- 원본의 한계를 숨기지 않고 복구 기준, 기술 부채, 다음 개선 계획을 문서화했습니다.
+| Portfolio Demo | GitHub Pages 기반 인터랙티브 서비스 시뮬레이터 |
 
 ## Feature Surface
 
-- 영화 차트, 상세, 댓글, 좋아요
-- 시간표, 극장 위치, 좌석 선택, 예매 내역
-- 회원 가입, 로그인, 마이페이지, 비밀번호/아이디 찾기
-- 공지사항, Q&A, 분실물 게시판
-- 이벤트, 멤버십, 스토어, 채용 페이지
-- WebSocket/SockJS 기반 같이 보기 채팅 페이지 (`/show/trailer`)와 broadcast 핸들러
+- 영화 목록, 상세, 평점, 상영 시간표
+- 지점/회차 선택, 좌석 선택, 예매 확정, 내 예매
+- 팝콘/음료 스토어와 장바구니 주문 흐름
+- 공지, Q&A, 분실물 게시판
+- WebSocket/SockJS 기반 같이 보기 채팅 페이지 (`/show/trailer`)
+- 운영자 관점의 회차 점유율과 처리 업무 화면
+- 공개 데모에서 전체 사용자 흐름을 검토할 수 있는 mock state
+
+## Portfolio Direction
+
+LCB Cinema는 영화관 서비스의 핵심 사용자 여정을 한 번에 보여주는 포트폴리오입니다. GitHub Pages에서는 서버 없이도 제품 흐름을 볼 수 있도록 mock 데이터를 사용하고, 저장소에는 Spring MVC 기반 서버 소스와 JSP 화면 구조를 함께 보관합니다.
 
 ## Run Locally
 
-이 프로젝트는 전통적인 Spring MVC WAR 프로젝트입니다. 로컬 DB와 WAS가 필요합니다.
+이 프로젝트는 전통적인 Spring MVC WAR 프로젝트입니다. 로컬 DB와 WAS를 연결하면 서버 앱으로 실행할 수 있습니다.
 
 ```powershell
 .\mvnw.cmd -DskipTests package
@@ -55,14 +50,14 @@
 target/lcb-1.0.0-BUILD-SNAPSHOT.war
 ```
 
-로컬 실행을 위해서는 `src/main/resources/db-config/Hikari.properties`와 `src/main/resources/mail-config/mail.properties`의 더미 값을 개인 환경에 맞게 바꿔야 합니다. 실제 운영 자격증명은 커밋하지 않습니다.
+로컬 실행 시 `src/main/resources/db-config/Hikari.properties`와 `src/main/resources/mail-config/mail.properties`의 값을 개인 환경에 맞게 설정합니다. 실제 운영 자격증명은 저장소에 포함하지 않습니다.
 
 ## Documentation
 
 - [Architecture Notes](docs/architecture.html)
-- [Recovery Audit](docs/recovery-audit.html)
+- [Quality Notes](docs/quality.html)
 - [Security Notes](SECURITY.md)
 
-## Current Status
+## Status
 
-`mvn -DskipTests package` 기준 WAR 빌드는 성공합니다. 데이터베이스 스키마와 실 데이터는 별도 복구가 필요하므로, 공개 데모는 정적 mock으로 제공합니다.
+`.\mvnw.cmd -DskipTests package` 기준 WAR 빌드가 성공합니다. 공개 포트폴리오 화면은 GitHub Pages에서 바로 실행되는 인터랙티브 데모로 제공합니다.

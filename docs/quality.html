@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LCB Cinema Quality Notes</title>
+  <style>
+    body { margin: 0; font-family: Arial, "Noto Sans KR", sans-serif; color: #15171d; background: #fff; line-height: 1.7; }
+    main { max-width: 1040px; margin: 0 auto; padding: 56px 20px; }
+    a { color: #0f766e; font-weight: 800; text-decoration: none; }
+    h1 { margin: 0 0 18px; font-size: clamp(34px, 6vw, 58px); line-height: 1; letter-spacing: 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+    th, td { border: 1px solid #d9dde3; padding: 12px; text-align: left; vertical-align: top; }
+    th { background: #f5f6f4; }
+    code { background: #f0f2f1; padding: 2px 5px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <main>
+    <a href="./">Back to docs</a>
+    <h1>Quality Notes</h1>
+    <p>LCB Cinema를 공개 포트폴리오로 검토하기 좋은 상태로 유지하기 위한 기준입니다.</p>
+
+    <table>
+      <thead>
+        <tr><th>Area</th><th>Policy</th><th>Current State</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Build</td><td>Maven Wrapper로 WAR 패키징을 재현 가능하게 유지</td><td><code>.\mvnw.cmd -DskipTests package</code> 성공</td></tr>
+        <tr><td>Public Demo</td><td>서버 없이도 핵심 서비스 흐름을 볼 수 있어야 함</td><td>GitHub Pages에서 영화, 예매, 스토어, 게시판, 채팅, 운영 화면 제공</td></tr>
+        <tr><td>Credentials</td><td>DB, SMTP, 외부 API 키는 placeholder만 포함</td><td>공개 트리에서 알려진 민감 문자열 제거</td></tr>
+        <tr><td>Artifacts</td><td>빌드 산출물은 저장소에서 제외</td><td><code>target/</code>, <code>*.war</code> 무시</td></tr>
+        <tr><td>Chat</td><td>배포 환경에 고정된 주소 대신 앱 context path를 사용</td><td>JSP에서 <code>${pageContext.request.contextPath}/echo</code> SockJS endpoint 사용</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Next Improvements</h2>
+    <p>Spring Security, 입력 검증, 예매 트랜잭션 테스트, DB migration, 관리자 권한 분리, 실제 채팅방 대화 기록 저장을 다음 개선 범위로 둡니다.</p>
+  </main>
+</body>
+</html>
