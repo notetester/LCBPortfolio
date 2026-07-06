@@ -29,6 +29,7 @@
         <tr><td>로컬 폴더가 원격 이력과 분리됨</td><td>잘못된 소스 기준으로 작업하면 기능 파일이 더 사라질 수 있음</td><td>원격 원본 스냅샷을 기준으로 새 포트폴리오 repo에 이관</td></tr>
         <tr><td>구버전 Lombok이 Java 21 javac에서 실패</td><td>Maven compile 불가</td><td>Lombok과 Maven compiler/war plugin 업데이트</td></tr>
         <tr><td>DB, SMTP, Kakao 키 하드코딩</td><td>공개 repo 보안 리스크</td><td>현재 트리에서 더미 값과 가드 로직으로 치환</td></tr>
+        <tr><td>채팅 클라이언트가 과거 EC2 주소에 고정됨</td><td>현재 서버 컨텍스트에서 WebSocket 기능이 동작하지 않음</td><td>JSP context path 기준 <code>/echo</code> SockJS endpoint를 사용하도록 수정</td></tr>
         <tr><td><code>target/</code> 산출물이 원본 커밋에 포함</td><td>저장소 품질 저하, 불필요한 바이너리 확산</td><td>포트폴리오 repo에서는 산출물 제외 및 `.gitignore` 정리</td></tr>
         <tr><td>DB 스키마와 실행 데이터 미확정</td><td>서버 앱 전체 기능을 즉시 시연하기 어려움</td><td>GitHub Pages 정적 mock demo로 핵심 사용자 흐름 제공</td></tr>
       </tbody>

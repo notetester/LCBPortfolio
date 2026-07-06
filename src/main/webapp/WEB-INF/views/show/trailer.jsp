@@ -63,7 +63,7 @@
 			$('#message').val('');
 		}
 	});
-	let sock = new SockJS("http://13.209.171.25:8181/lcb/echo/");
+	let sock = new SockJS("${pageContext.request.contextPath}/echo");
 	sock.onmessage = onMessage;
 	sock.onclose = onClose;
 	// 메시지 전송

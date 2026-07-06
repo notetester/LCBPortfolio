@@ -17,7 +17,7 @@
 
 | Item | Detail |
 | --- | --- |
-| Project | 영화 조회, 예매, 좌석 선택, 리뷰, Q&A, 이벤트, 스토어, 회원 기능을 포함한 영화관 웹 서비스 |
+| Project | 영화 조회, 예매, 좌석 선택, 리뷰, Q&A, 이벤트, 스토어, 회원, 같이 보기 채팅 기능을 포함한 영화관 웹 서비스 |
 | Role | 개인 포트폴리오 재구성. 유실된 팀/커밋 이력은 기재하지 않음 |
 | Backend | Java 8 target, Spring MVC 5, MyBatis, HikariCP, MySQL, JavaMail, WebSocket |
 | View | JSP/JSTL, Bootstrap, jQuery |
@@ -39,7 +39,7 @@
 - 회원 가입, 로그인, 마이페이지, 비밀번호/아이디 찾기
 - 공지사항, Q&A, 분실물 게시판
 - 이벤트, 멤버십, 스토어, 채용 페이지
-- WebSocket 기반 알림/에코 핸들러 실험 코드
+- WebSocket/SockJS 기반 같이 보기 채팅 페이지 (`/show/trailer`)와 broadcast 핸들러
 
 ## Run Locally
 
