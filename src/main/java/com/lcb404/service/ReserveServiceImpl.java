@@ -2,8 +2,7 @@ package com.lcb404.service;
 
 
 
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,9 +40,9 @@ public class ReserveServiceImpl implements ReserveService{
 	@Override
 	public List<TimeTableVO> getTime(String day) {
 
-		//String date = "2020-08-"+day;
-		
-//		Date d = Date.valueOf(date);
+		if (day == null || !day.matches("\\d{1,2}")) {
+			return Collections.emptyList();
+		}
 		Map<String,String> map = new HashMap<>();
 		
 		map.put("day",day);

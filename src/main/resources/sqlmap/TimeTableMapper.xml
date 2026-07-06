@@ -4,7 +4,7 @@
 <mapper namespace="com.lcb404.mapper.TimeTableMapper">
 
 	<select id="getTime" resultType="TimeTableVO">
-		select * from timetable where date_format(TIMETABLE_START,'%y-%m-%d') like  CONCAT('%',${day},'%') order by TIMETABLE_NUMBER
+		select * from timetable where date_format(TIMETABLE_START,'%y-%m-%d') like CONCAT('%', #{day}, '%') order by TIMETABLE_NUMBER
 	</select>
 	
 	<select id="getDay" resultType="TimeTableVO">

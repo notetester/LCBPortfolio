@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -49,6 +51,7 @@ import com.lcb404.utill.PageVO;
 @Controller
 @RequestMapping("user")
 public class UserController {
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
 	@Qualifier("userService")
@@ -88,11 +91,16 @@ public class UserController {
     public String sendpw(@ModelAttribute EmailDTO dto,UserVO vo, Model model) {
     	
     	if(!StringUtils.isBlank(vo.getMEMBERS_EMAIL())) {
+            String password = userService.getPw(vo);
+            if (StringUtils.isBlank(password)) {
+                model.addAttribute("msg", "일치하는 계정을 찾지 못했습니다.");
+                return "redirect:/";
+            }
     	
-	    	dto.setSenderName("관리자");
-	    	dto.setSenderMail("noreply@lcb.local");
-	    	dto.setReceiveMail(vo.getMEMBERS_EMAIL());
-	    	dto.setMessage("비밀번호는"+userService.getPw(vo)+"입니다.");
+            dto.setSenderName("관리자");
+            dto.setSenderMail("noreply@lcb.local");
+            dto.setReceiveMail(vo.getMEMBERS_EMAIL());
+            dto.setMessage("비밀번호 재설정 요청이 접수되었습니다. 본인이 요청한 경우 로그인 화면에서 새 비밀번호 발급 절차를 진행해주세요.");
 	    	
 	        try {
 	 
@@ -100,7 +108,7 @@ public class UserController {
 	            model.addAttribute("msg", "이메일이 발송되었습니다."); // 이메일이 발송되었다는 메시지를 출력시킨다.
 	 
 	        } catch (Exception e) {
-	            e.printStackTrace();
+	            logger.warn("Password recovery mail failed", e);
 	            model.addAttribute("msg", "이메일 발송 오류..."); // 이메일 발송이 실패되었다는 메시지를 출력
 	        }
     	} else {
@@ -126,7 +134,7 @@ public class UserController {
 	            model.addAttribute("msg", "이메일이 발송되었습니다."); // 이메일이 발송되었다는 메시지를 출력시킨다.
 	 
 	        } catch (Exception e) {
-	            e.printStackTrace();
+	            logger.warn("ID recovery mail failed", e);
 	            model.addAttribute("msg", "이메일 발송 오류..."); // 이메일 발송이 실패되었다는 메시지를 출력
 	        }
     	} else {
@@ -308,8 +316,6 @@ public class UserController {
 			return "redirect:/user/user_login";
 		}else {
 		
-		System.out.println(vo.getMEMBERS_ID());
-		System.out.println(vo.getMEMBERS_PW());
 		int result = userService.login(vo); // 1이면 로그인, 0이면 실패
 
 		if (result == 1) {
@@ -336,7 +342,6 @@ public class UserController {
 	 @RequestMapping("/updateForm") 
 	 public String ModifyForm(UserVO vo,RedirectAttributes RA) {
 	 
-		 System.out.println(vo.getMEMBERS_ID());
 		 int result = userService.Update(vo);
 	 if(result == 0) { RA.addFlashAttribute("msg", "정보 수정이 실패했습니다");
 	  

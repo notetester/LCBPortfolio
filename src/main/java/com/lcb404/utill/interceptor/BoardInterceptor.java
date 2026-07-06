@@ -46,9 +46,6 @@ public class BoardInterceptor extends HandlerInterceptorAdapter {
 			return true;
 		}
 		
-		System.out.println(MEMBERS_ID);
-		System.out.println(id);
-		
 		if(id != null && id.equals(MEMBERS_ID)) {
 			return true; //컨트롤러를 그대로 실행
 		} else {
